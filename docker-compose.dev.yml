@@ -1,0 +1,18 @@
+version: '3.5'
+volumes:
+  api: {}
+
+services:
+  api:
+    image: api-dev
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    container_name: book-rental-manager-api-dev
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/src
+      - api:/usr/local/lib/python3.7/site-packages/
+    command: |
+      /bin/sh book_rental_manager/start-dev.sh

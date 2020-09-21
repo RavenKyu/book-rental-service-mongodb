@@ -1,0 +1,9 @@
+flask
+flask_pymongo
+flask_restx
+faker
+factory_boy
+flask_cors
+mongoengine
+mongomock
+mongoengine-goodjson

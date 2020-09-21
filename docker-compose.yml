@@ -1,0 +1,21 @@
+version: '3.5'
+services:
+  mongo:
+    image: mongo:3.6.20-xenial
+    container_name: mongodb
+    command: --bind_ip 0.0.0.0
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
+
+  api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: book-rental-manager-api
+    ports:
+      - 5000:5000
+    command: |
+      server -a 0.0.0.0 -p 5000
+
